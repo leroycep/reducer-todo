@@ -12,7 +12,12 @@ function TodoList() {
   return (
     <div>
       {state.todos.map(todo => (
-        <Todo key={todo.id} todo={todo} />
+        <Todo
+          key={todo.id}
+          editing={todo.id === state.editing}
+          todo={todo}
+          dispatch={dispatch}
+        />
       ))}
       <button onClick={newTodo}>New Todo</button>
     </div>

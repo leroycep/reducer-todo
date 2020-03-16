@@ -15,6 +15,17 @@ export function reducer(state, action) {
         editing: newId,
         todos: [...state.todos, { item: "", completed: false, id: newId }]
       };
+    case "SUBMIT_TODO_TEXT":
+      return {
+        ...state,
+        editing: null,
+        todos: state.todos.map(todo =>
+          todo.id === action.payload.id
+            ? { ...todo, item: action.payload.value }
+            : todo
+        )
+      };
+    default:
+      return state;
   }
-  return state;
 }
