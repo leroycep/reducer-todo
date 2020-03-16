@@ -9,6 +9,10 @@ function TodoList() {
     dispatch({ type: "NEW_TODO" });
   };
 
+  const clearCompleted = () => {
+    dispatch({ type: "CLEAR_COMPLETED" });
+  };
+
   return (
     <div>
       {state.todos.map(todo => (
@@ -19,7 +23,10 @@ function TodoList() {
           dispatch={dispatch}
         />
       ))}
-      <button onClick={newTodo}>New Todo</button>
+      <div>
+        <button onClick={newTodo}>New Todo</button>
+        <button onClick={clearCompleted}>Clear Completed</button>
+      </div>
     </div>
   );
 }

@@ -34,6 +34,13 @@ export function reducer(state, action) {
             : todo
         )
       };
+    case "CLEAR_COMPLETED":
+      console.log("hello");
+      console.log(state);
+      return {
+        ...state,
+        todos: state.todos.filter(todo => !todo.completed)
+      };
     default:
       return state;
   }

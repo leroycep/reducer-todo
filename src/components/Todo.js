@@ -33,7 +33,7 @@ function Todo({ todo, editing, dispatch }) {
           checked={todo.completed}
           onChange={handleToggle}
         />
-        <input ref={itemInputEl} type="text" defaultValue={todo.item} focus />
+        <input ref={itemInputEl} type="text" defaultValue={todo.item} autoFocus />
       </form>
     );
   }
