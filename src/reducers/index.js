@@ -25,6 +25,15 @@ export function reducer(state, action) {
             : todo
         )
       };
+    case "TOGGLE_TODO":
+      return {
+        ...state,
+        todos: state.todos.map(todo =>
+          todo.id === action.payload
+            ? { ...todo, completed: !todo.completed }
+            : todo
+        )
+      };
     default:
       return state;
   }
